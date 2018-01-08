@@ -6,10 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
 
-import com.ocr.ardoise.listeners.*;
 
 public class Fenetre extends JFrame {
 	 
@@ -23,8 +20,9 @@ public class Fenetre extends JFrame {
 
 
 	  //LA BARRE D'OUTILS
-	  JToolBar toolBar = new JToolBar();
-
+	  //JToolBar toolBar = new JToolBar();
+	  MyToolbar toolBar = new MyToolbar();
+	  
 	  JButton square = new JButton(new ImageIcon("images/carre.jpg")),
 	    circle = new JButton(new ImageIcon("images/rond.jpg")),
 	    red = new JButton(new ImageIcon("images/rouge.jpg")),
@@ -34,11 +32,6 @@ public class Fenetre extends JFrame {
 	  //Notre zone de dessin
 	  private MyPane drawPanel = new MyPane();
 	  
-	  //LES ÉCOUTEURS
-	  private FormeListener fListener = new FormeListener(drawPanel,square,circle);
-	  private CouleurListener cListener = new CouleurListener(drawPanel,green, blue);
-
-
 
 	  public Fenetre(){
 	    this.setSize(700, 500);
@@ -51,33 +44,14 @@ public class Fenetre extends JFrame {
 	    this.setJMenuBar(menuBar);
 	    
 	    //Idem pour la barre d'outils
-	    this.initToolBar();
+	    toolBar.initToolBar();
+	    this.getContentPane().add(toolBar, BorderLayout.NORTH);
+	    
 	    //On positionne notre zone de dessin
 	    this.getContentPane().add(drawPanel, BorderLayout.CENTER);
 	    this.setVisible(true);    
 	  }
 
-
-	  //Initialise la barre d'outils
-	  private void initToolBar(){
-
-
-	    square.addActionListener(fListener);
-	    circle.addActionListener(fListener);
-	    red.addActionListener(cListener);
-	    green.addActionListener(cListener);
-	    blue.addActionListener(cListener);
-
-	    toolBar.add(square);
-	    toolBar.add(circle);
-
-	    toolBar.addSeparator();
-	    toolBar.add(red);
-	    toolBar.add(blue);
-	    toolBar.add(green);
-
-	    this.getContentPane().add(toolBar, BorderLayout.NORTH);
-	  }
 
 
 

@@ -30,6 +30,12 @@ public class MyToolbar extends JToolBar {
 
 		super();
 		
+
+
+	}
+	
+	public void initToolBar() {
+		
 		this.carre.setBackground(fondBouton);
 		this.rond.setBackground(fondBouton);
 		
@@ -48,11 +54,11 @@ public class MyToolbar extends JToolBar {
 	    this.add(rouge);	
 	    this.add(vert);	
 	    
-	    //Ce sont maintenant nos classes internes qui écoutent nos boutons 
+	    //Ce sont maintenant nos classes internes qui ï¿½coutent nos boutons 
 	    vert.addActionListener(new BoutonVertListener());
 	    bleu.addActionListener(new BoutonBleuListener());
-
 	}
+	
 
 	// setter for the color :
 	public void setColor(Color theColor) {
@@ -67,17 +73,17 @@ public class MyToolbar extends JToolBar {
 	}
 		
 	
-	  //Classe écoutant notre premier bouton
+	  //Classe ï¿½coutant notre premier bouton
 	  class BoutonVertListener implements ActionListener{
-	    //Redéfinition de la méthode actionPerformed()
+	    //Redï¿½finition de la mï¿½thode actionPerformed()
 	    public void actionPerformed(ActionEvent arg0) {
 	      curColor = Color.green;
 	    }
 	  }
 	      
-	  //Classe écoutant notre second bouton
+	  //Classe ï¿½coutant notre second bouton
 	  class BoutonBleuListener implements ActionListener{
-	    //Redéfinition de la méthode actionPerformed()
+	    //Redï¿½finition de la mï¿½thode actionPerformed()
 	    public void actionPerformed(ActionEvent e) {
 	      curColor = Color.blue; 
 	    }
